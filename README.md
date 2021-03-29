@@ -1,12 +1,18 @@
 # Billing
 
+## Stack
+
+- Python
+- FastAPI
+- PostgreSQL
+
 Keep all data in two tables: wallet, transaction
 
-###Pros:
+### Pros:
 - Every transaction has uuid, in case of double http request
 - No deadlock in case with 2 cyclic transactions
 
-##Cons:
+### Cons:
  - Slow access to wallet transaction history(no index)
  - System may be deadlocked in case with 3 or more cyclic transactions
 
