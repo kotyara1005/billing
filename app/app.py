@@ -13,9 +13,6 @@ from app.exception_handlers import (
 from app.models import database
 from app.views import router
 
-# TODO tests
-# TODO philosofers
-
 
 def create_app() -> FastAPI:
     app = FastAPI(
