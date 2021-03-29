@@ -48,6 +48,7 @@ async def add_money(request: AddMoneyRequest):
 @router.post("/money/send")
 @database.transaction()
 async def send_money(request: SendMoneyRequest):
+    # No deadlocks for 2 cyclic transactions
     if request.from_wallet_id < request.to_wallet_id:
         wallet_from = await Wallet.get_for_update(request.from_wallet_id)
         wallet_to = await Wallet.get_for_update(request.to_wallet_id)
